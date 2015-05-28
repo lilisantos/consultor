@@ -10,7 +10,7 @@ class Crud  {
 		return $this->tabela;
 	}
 
-	public function inserir($campos, $valores) {
+	public function inserir($campos, $valores, $pagina) {
 		$this->sql_ins = "INSERT INTO " . $this->tabela . " ($campos) VALUES ($valores)";
 		if (!$this->ins = mysql_query($this->sql_ins)){
 			die ("<center>Erro na inclusão " . '<br>Linha: ' . __LINE__ . "<br>" . mysql_error() . "<br>
@@ -18,9 +18,7 @@ class Crud  {
 		}
         else{
 			//print "<script>location='index.php';</script>";
-		echo "<script>alert ('Dados alterados com sucesso');location='#';</script>";
-	
-		
+		echo "<script>alert ('Dados cadastrados com sucesso');location='../forms/$pagina';</script>";
 		}
 	}
 
@@ -35,10 +33,9 @@ class Crud  {
 				<a href='index.php'>Voltar ao Menu</a></center>");
 		}
         else{
-			print "<center>Registro Atualizado com Sucesso!<br><a href='index.php'>Voltar ao Menu</a></center>";
+			//print "<center>Registro Atualizado com Sucesso!<br><a href='index.php'>Voltar ao Menu</a></center>";
 		}
 	}
-
 
 	public function excluir($where = NULL) {
 		if ($where){
@@ -47,7 +44,6 @@ class Crud  {
 		}
         else{
 			$this->sql_sel = "SELECT * FROM " . $this->tabela;
-			$this->sql_del = "DELETE FROM " . $this->tabela;
 	  	}
 
         $sel=mysql_query($this->sql_sel);
@@ -58,12 +54,27 @@ class Crud  {
                 die ("<center>Erro na exclusão " . '<br>Linha: ' . __LINE__ . "<br>" .mysql_error() ."<br>
                     <a href='index.php'>Voltar ao Menu</a></center>" );
             }
-            else{
-                print "<center>Registro Excluído com Sucesso!<br><a href='index.php'>Voltar ao Menu</a></center>";
-            }
         }else{
             print "<center>Registro Não encontrado!<br><a href='index.php'>Voltar ao Menu</a></center>";
         }
-	}  	
+	}
+
+    function listarProdutos($campos, $qtdCampos) {
+        $tab_ret = Array();
+        $comando = "SELECT " . $campos ."
+		            FROM " . $this->tabela;
+        $retorno = mysql_query($comando); # retorna registros (SELECT)
+        $qtde = mysql_num_rows($retorno); # qtde linhas retornadas
+
+        for ($i=0;$i<$qtde;$i++){
+            $row = mysql_fetch_array($retorno);
+            for ($j=0; $j<$qtdCampos; $j++) {
+                $tab_ret[$i][$j] = $row[$j];
+            }
+        }
+        return $tab_ret;
+    }
+
+
  }
   	

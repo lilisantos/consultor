@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template</title>
+    <title><?php print $title; ?></title>
     <!-- BOOTSTRAP STYLES-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME ICONS STYLES-->
     <link href="../assets/css/font-awesome.css" rel="stylesheet" />
     <!--CUSTOM STYLES-->
     <link href="../assets/css/style.css" rel="stylesheet" />
-      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+
+    <link href="../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
     <![endif]-->
 </head>
 <body>
@@ -31,95 +34,22 @@
             </div>
 
             <div class="notifications-wrapper">
-            <ul class="nav">
+            <ul class="nav navbar-top-links navbar-right">
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-tasks">
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>Task 1</strong>
-                                                <span class="pull-right text-muted">60% Complete</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                    <span class="sr-only">60% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>Task 2</strong>
-                                                <span class="pull-right text-muted">30% Complete</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-                                                    <span class="sr-only">30% Complete</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>Task 3</strong>
-                                                <span class="pull-right text-muted">80% Complete</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                                    <span class="sr-only">80% Complete (warning)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>Task 4</strong>
-                                                <span class="pull-right text-muted">90% Complete</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                                    <span class="sr-only">90% Complete (success)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a class="text-center" href="#">
-                                        <strong>See Tasks List + </strong>
-                                    </a>
-                                </li>
-                            </ul>
-                </li>
-              
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user-plus"></i>  <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user-plus"></i> My Profile</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
+                    <!-- /.dropdown-user -->
                 </li>
             </ul>
             </div>
@@ -135,11 +65,7 @@
                     </li>
 
                     <li>
-                        <a  href="#"> <strong> Liliane Fernandes </strong></a>
-                    </li>
-
-                    <li>
-                        <a href="frmProduto.php"><i class="fa fa-dashcube "></i>Produtos</a>
+                        <a  href="#"> <strong> User </strong></a>
                     </li>
 
                     <li>
@@ -147,46 +73,28 @@
                     </li>
 
                     <li>
-                        <a href="../basico(tema)/ui.html"><i class="fa fa-venus "></i>UI Elements </a>
+                        <a href="frmProduto.php"><i class="fa fa-dashcube "></i>Produtos</a>
                     </li>
-                    
+
                     <li>
-                        <a href="../basico(tema)/table.html"><i class="fa fa-bolt "></i>Data Tables </a>
-                    </li>
-                     
-                    <li>
-                        <a href="../basico(tema)/forms.html"><i class="fa fa-code "></i>Forms</a>
-                    </li>
-                   
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
-                         <ul class="nav nav-second-level">
+                        <a href="#"><i class="fa fa-file-text-o "></i>Pedidos <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
                             <li>
-                                <a href="#"><i class="fa fa-cogs "></i>Second  Link</a>
-                            </li>
-                             <li>
-                                <a href="#"><i class="fa fa-bullhorn "></i>Second Link</a>
+                                <a href="#"><i class="fa fa-check-square-o "></i>Finalizados</a>
                             </li>
                             <li>
-                                <a href="#">Second Level<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third  Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Link</a>
-                                    </li>
-
-                                </ul>
-
+                                <a href="#"><i class="fa fa-bullhorn fa-spin"></i>Pendentes</a>
                             </li>
                         </ul>
                     </li>
+                    
                     <li>
-                        <a class="active-menu" href="../basico(tema)/blank.html"><i class="fa fa-dashcube "></i>Blank Page</a>
+                        <a href="frmCliente.php"><i class="fa fa-users "></i>Cliente </a>
                     </li>
-
-                   
+                     
+                    <li>
+                        <a href="sobre.html"><i class="fa fa-code "></i>Sobre</a>
+                    </li>
                 </ul>
             </div>
 

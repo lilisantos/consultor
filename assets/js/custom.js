@@ -35,8 +35,23 @@ $(document).ready(function () {
     /*======================================
    WRITE YOUR SCRIPTS BELOW
    ========================================*/
-   
-   
+    // jquery para chamar a modal
+    $("table").on('click',"#btnAlterar", function(){
+        var codProd = $(this).attr('data-id');  // pega o id do botão
 
+        $.post('frmAlterarProduto.php', {acao: 'alterar',codProd: codProd}, function(retorno){
+            $("#modalAlterar").modal({ backdrop: 'static' });
+            $("#conteudoModal").html(retorno);
+        });
+    });
+
+    $("table").on('click',"#btnVisualizar", function(){
+        var codProd = $(this).attr('data-id');  // pega o id do botão
+
+        $.post('frmVisualizarFoto.php', {acao: 'alterar',codProd: codProd}, function(retorno){
+            $("#modalFoto").modal({ backdrop: 'static' });
+            $("#conteudoModalFoto").html(retorno);
+        });
+    });
 });
       
